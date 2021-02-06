@@ -8,32 +8,6 @@ let volumeSlider = document.getElementById('volume-slider');
 let volumeNumber = document.getElementById('volume-number');
 let volumeImage = document.getElementById('volume-image');
 
-//Input field that serves as the textual indicator of sound level
-volumeNumber.addEventListener('input', changeByNumber);
-function changeByNumber () {
-    honkBtn.disabled = false;
-    let volume = volumeNumber.value / 100;
-    document.getElementById("horn-sound").volume = volume;
-    volumeSlider.value = volumeNumber.value;
-    // volume-level-0: 0
-    if(volumeSlider.value == 0){
-        volumeImage.src = "./assets/media/icons/volume-level-0.svg";
-        honkBtn.disabled = true; // disable the button if volume is muted
-   }
-   // volume-level-1: 1-33
-   else if(volumeSlider.value < 34){
-       volumeImage.src = "./assets/media/icons/volume-level-1.svg";
-   }
-   // volume-level-2: 34-66  
-   else if(volumeSlider.value < 67){
-       volumeImage.src = "./assets/media/icons/volume-level-2.svg";
-   }
-   // volume-level-3: 67-100
-   else{
-       volumeImage.src = "./assets/media/icons/volume-level-3.svg";
-   }
-};
-
 // Slider that serves visual controller for sound level
 volumeSlider.addEventListener('input', changeBySlider);
 function changeBySlider () {
@@ -58,6 +32,32 @@ function changeBySlider () {
     else{
         volumeImage.src = "./assets/media/icons/volume-level-3.svg";
     }
+};
+
+//Input field that serves as the textual indicator of sound level
+volumeNumber.addEventListener('input', changeByNumber);
+function changeByNumber () {
+    honkBtn.disabled = false;
+    let volume = volumeNumber.value / 100;
+    document.getElementById("horn-sound").volume = volume;
+    volumeSlider.value = volumeNumber.value;
+    // volume-level-0: 0
+    if(volumeSlider.value == 0){
+        volumeImage.src = "./assets/media/icons/volume-level-0.svg";
+        honkBtn.disabled = true; // disable the button if volume is muted
+   }
+   // volume-level-1: 1-33
+   else if(volumeSlider.value < 34){
+       volumeImage.src = "./assets/media/icons/volume-level-1.svg";
+   }
+   // volume-level-2: 34-66  
+   else if(volumeSlider.value < 67){
+       volumeImage.src = "./assets/media/icons/volume-level-2.svg";
+   }
+   // volume-level-3: 67-100
+   else{
+       volumeImage.src = "./assets/media/icons/volume-level-3.svg";
+   }
 };
 
 
